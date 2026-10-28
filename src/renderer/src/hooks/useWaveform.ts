@@ -63,7 +63,7 @@ export default ({ filePath, relevantTime, fileDuration, waveformEnabled, audioSt
           const alreadyHaveWaveformAtTime = (waveformsRef.current ?? []).some((waveform) => waveform.from === time);
           if (!alreadyHaveWaveformAtTime && time < fileDuration) {
             try {
-              const promise = renderWaveformPng({ filePath, start: time, duration: safeExtractDuration, color, streamIndex: audioStream.index, timeout: 10000 });
+              const promise = renderWaveformPng({ filePath, start: time, duration: safeExtractDuration, color, streamIndex: audioStream.index, timeout: 30000 });
 
               setWaveforms((currentWaveforms) => {
                 const waveformsByCreatedAt = sortBy(currentWaveforms, 'createdAt');
